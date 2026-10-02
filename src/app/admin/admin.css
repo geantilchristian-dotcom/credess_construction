@@ -1,0 +1,612 @@
+/* ============================================================
+   CREDESS ADMINISTRATION
+============================================================ */
+* {
+  box-sizing: border-box;
+}
+.credessAdmin {
+  --admin-red: #e30613;
+  --admin-black: #07090b;
+  --admin-soft: #111416;
+  --admin-border: #e3e5e7;
+  --admin-gray: #70757a;
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 270px 1fr;
+  background: #f4f5f6;
+  color: #111;
+  font-family:
+    "Segoe UI Variable Text",
+    "Aptos",
+    "Segoe UI",
+    sans-serif;
+}
+/* ============================================================
+   SIDEBAR
+============================================================ */
+.adminSidebar {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  padding: 0 15px 20px;
+  display: flex;
+  flex-direction: column;
+  background: var(--admin-black);
+  color: #fff;
+}
+.adminBrand {
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom:
+    1px solid rgba(255,255,255,.08);
+}
+.adminLogo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+.adminLogoMark {
+  width: 35px;
+  height: 42px;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+}
+.adminLogoMark i {
+  width: 7px;
+  display: block;
+  background: var(--admin-red);
+  transform: skewY(-25deg);
+}
+.adminLogoMark i:nth-child(1) {
+  height: 23px;
+}
+.adminLogoMark i:nth-child(2) {
+  height: 38px;
+}
+.adminLogoMark i:nth-child(3) {
+  height: 29px;
+}
+.adminLogo > span:last-child {
+  display: flex;
+  flex-direction: column;
+}
+.adminLogo strong {
+  font-size: 16px;
+  line-height: 1;
+}
+.adminLogo small {
+  margin-top: 5px;
+  color: var(--admin-red);
+  font-size: 6px;
+  font-weight: 900;
+  letter-spacing: 1.6px;
+}
+/* NAV */
+.adminNavigation {
+  flex: 1;
+  padding-top: 20px;
+  overflow-y: auto;
+}
+.adminNavItem {
+  min-height: 62px;
+  padding: 9px 7px;
+  display: grid;
+  grid-template-columns:
+    28px
+    1fr
+    17px;
+  align-items: center;
+  gap: 4px;
+  border-bottom:
+    1px solid rgba(255,255,255,.065);
+  color: #fff;
+  text-decoration: none;
+  transition:
+    background .2s ease,
+    padding .2s ease;
+}
+.adminNavItem > span {
+  color: #535a60;
+  font-size: 8px;
+  font-weight: 800;
+}
+.adminNavItem > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.adminNavItem strong {
+  font-size: 12px;
+  font-weight: 700;
+}
+.adminNavItem small {
+  color: #747b81;
+  font-size: 7px;
+  line-height: 1.3;
+}
+.adminNavItem > b {
+  color: var(--admin-red);
+  font-size: 13px;
+}
+.adminNavItem:hover,
+.adminNavItem.active {
+  padding-left: 12px;
+  background:
+    rgba(255,255,255,.045);
+}
+.adminNavItem.active strong {
+  color: var(--admin-red);
+}
+/* SIDEBAR BOTTOM */
+.adminSidebarBottom {
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  border-top:
+    1px solid rgba(255,255,255,.08);
+}
+.adminSidebarBottom a,
+.adminSidebarBottom button {
+  min-height: 38px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border:
+    1px solid rgba(255,255,255,.1);
+  background: transparent;
+  color: #aaaeb2;
+  font-family: inherit;
+  font-size: 9px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.adminSidebarBottom button {
+  color: #e7656d;
+}
+.adminMobileClose {
+  display: none;
+}
+/* ============================================================
+   MAIN
+============================================================ */
+.adminMain {
+  min-width: 0;
+}
+/* TOPBAR */
+.adminTopbar {
+  height: 72px;
+  padding:
+    0
+    32px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #fff;
+  border-bottom:
+    1px solid var(--admin-border);
+}
+.adminTopbar > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.adminTopbar small {
+  color: var(--admin-red);
+  font-size: 7px;
+  font-weight: 850;
+  letter-spacing: 1.3px;
+}
+.adminTopbar strong {
+  font-size: 13px;
+}
+.adminViewSite {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #111;
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.adminViewSite span {
+  color: var(--admin-red);
+}
+.adminMenuButton {
+  display: none;
+}
+/* CONTENT */
+.adminContent {
+  width: min(1250px, 100%);
+  padding:
+    40px
+    35px
+    80px;
+}
+/* ============================================================
+   WELCOME
+============================================================ */
+.adminWelcome {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+}
+.adminWelcome small,
+.adminSectionHeading small,
+.adminQuotePanel small {
+  color: var(--admin-red);
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: 1.5px;
+}
+.adminWelcome h1 {
+  margin:
+    7px
+    0
+    8px;
+  font-family:
+    "Segoe UI Variable Display",
+    "Aptos Display",
+    sans-serif;
+  font-size: 38px;
+  line-height: 1;
+  letter-spacing: -1.7px;
+}
+.adminWelcome p {
+  max-width: 590px;
+  margin: 0;
+  color: var(--admin-gray);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.adminPrimaryAction {
+  min-height: 43px;
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  background: var(--admin-red);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 750;
+  text-decoration: none;
+}
+/* ============================================================
+   STATS
+============================================================ */
+.adminStats {
+  margin-bottom: 35px;
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0,1fr));
+  gap: 9px;
+}
+.adminStats article {
+  min-height: 135px;
+  padding: 17px;
+  display: flex;
+  flex-direction: column;
+  border:
+    1px solid var(--admin-border);
+  background: #fff;
+}
+.adminStats article > small {
+  color: #82878b;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.adminStats article > strong {
+  margin:
+    17px
+    0
+    auto;
+  color: #111;
+  font-size: 32px;
+  line-height: 1;
+}
+.adminStats article > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--admin-red);
+  font-size: 9px;
+  font-weight: 700;
+  text-decoration: none;
+}
+/* ============================================================
+   SECTIONS
+============================================================ */
+.adminSection {
+  margin-top: 35px;
+}
+.adminSectionHeading {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+.adminSectionHeading h2 {
+  margin:
+    5px
+    0
+    0;
+  font-size: 24px;
+  letter-spacing: -1px;
+}
+.adminSectionHeading > a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--admin-red);
+  font-size: 9px;
+  font-weight: 750;
+  text-decoration: none;
+}
+/* ============================================================
+   MODULES
+============================================================ */
+.adminModules {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0,1fr));
+  gap: 9px;
+}
+.adminModule {
+  min-height: 150px;
+  padding: 18px;
+  display: grid;
+  grid-template-columns:
+    30px
+    1fr
+    20px;
+  gap: 8px;
+  border:
+    1px solid var(--admin-border);
+  background: #fff;
+  color: #111;
+  text-decoration: none;
+  transition:
+    transform .2s ease,
+    border-color .2s ease;
+}
+.adminModule:hover {
+  border-color: #bbbfc2;
+  transform: translateY(-2px);
+}
+.adminModuleNumber {
+  color: var(--admin-red);
+  font-size: 8px;
+  font-weight: 850;
+}
+.adminModule h3 {
+  margin: 0 0 7px;
+  font-size: 15px;
+}
+.adminModule p {
+  margin: 0;
+  color: #7a7f83;
+  font-size: 9px;
+  line-height: 1.5;
+}
+.adminModule > b {
+  color: var(--admin-red);
+}
+/* ============================================================
+   PROJECTS
+============================================================ */
+.adminRecentProjects {
+  border:
+    1px solid var(--admin-border);
+  background: #fff;
+}
+.adminRecentProjects article {
+  min-height: 60px;
+  padding: 0 15px;
+  display: grid;
+  grid-template-columns:
+    35px
+    1fr
+    auto;
+  align-items: center;
+  gap: 10px;
+  border-bottom:
+    1px solid #eceeef;
+}
+.adminRecentProjects article:last-child {
+  border-bottom: 0;
+}
+.adminRecentProjects article > span {
+  color: var(--admin-red);
+  font-size: 8px;
+  font-weight: 850;
+}
+.adminRecentProjects article > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.adminRecentProjects strong {
+  font-size: 11px;
+}
+.adminRecentProjects small {
+  color: #8a8f93;
+  font-size: 7px;
+}
+.adminRecentProjects article > a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #555;
+  font-size: 9px;
+  text-decoration: none;
+}
+.adminRecentProjects article > a b {
+  color: var(--admin-red);
+}
+/* ============================================================
+   QUOTE PANEL
+============================================================ */
+.adminQuotePanel {
+  margin-top: 35px;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  background: var(--admin-black);
+  color: #fff;
+}
+.adminQuotePanel h2 {
+  margin:
+    7px
+    0
+    8px;
+  font-size: 25px;
+}
+.adminQuotePanel p {
+  max-width: 550px;
+  margin: 0;
+  color: #8f9498;
+  font-size: 10px;
+  line-height: 1.6;
+}
+.adminQuotePanel > a {
+  min-width: 170px;
+  height: 44px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--admin-red);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 750;
+  text-decoration: none;
+}
+/* ============================================================
+   MOBILE
+============================================================ */
+@media (max-width: 900px) {
+  .credessAdmin {
+    grid-template-columns: 1fr;
+  }
+  .adminSidebar {
+    width: min(310px, 88vw);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    transform:
+      translateX(-105%);
+    transition:
+      transform .25s ease;
+  }
+  .adminSidebarOpen {
+    transform:
+      translateX(0);
+  }
+  .adminMobileClose {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 27px;
+  }
+  .adminMenuButton {
+    width: 36px;
+    height: 36px;
+    padding: 7px;
+    display: block;
+    border: 0;
+    background: #111;
+  }
+  .adminMenuButton span {
+    height: 2px;
+    margin: 4px 0;
+    display: block;
+    background: #fff;
+  }
+  .adminTopbar {
+    padding:
+      0
+      13px;
+  }
+  .adminViewSite {
+    font-size: 8px;
+  }
+  .adminContent {
+    padding:
+      28px
+      10px
+      60px;
+  }
+  .adminWelcome {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .adminWelcome h1 {
+    font-size: 31px;
+  }
+  .adminPrimaryAction {
+    min-height: 40px;
+  }
+  .adminStats {
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+    gap: 7px;
+  }
+  .adminStats article {
+    min-height: 110px;
+    padding: 13px;
+  }
+  .adminStats article > strong {
+    font-size: 27px;
+  }
+  .adminModules {
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+    gap: 7px;
+  }
+  .adminModule {
+    min-height: 135px;
+    padding: 13px;
+    grid-template-columns:
+      23px
+      1fr
+      15px;
+  }
+  .adminModule h3 {
+    font-size: 12px;
+  }
+  .adminModule p {
+    font-size: 8px;
+  }
+  .adminQuotePanel {
+    padding: 20px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .adminQuotePanel > a {
+    width: 100%;
+  }
+}
+@media (max-width: 390px) {
+  .adminModules {
+    grid-template-columns: 1fr;
+  }
+}

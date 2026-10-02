@@ -1,0 +1,912 @@
+/* ============================================================
+   CREDESS — DEMANDE DE DEVIS
+============================================================ */
+.oneQuestionPage {
+  min-height: 100vh;
+  background: #f3f4f5;
+  color: #111;
+  font-family:
+    "Segoe UI Variable Text",
+    "Aptos",
+    "Segoe UI",
+    Arial,
+    sans-serif;
+}
+.oneQuestionPage *,
+.oneQuestionPage *::before,
+.oneQuestionPage *::after {
+  box-sizing: border-box;
+}
+/* ============================================================
+   HEADER
+============================================================ */
+.quoteWizardHeader {
+  width: 100%;
+  height: 72px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #060809;
+  color: #fff;
+}
+.quoteWizardHeader .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+.quoteWizardHeader .logoMark {
+  width: 34px;
+  height: 39px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 3px;
+}
+.quoteWizardHeader .logoMark i {
+  width: 7px;
+  display: block;
+  background: #e30613;
+  transform: skewY(-25deg);
+}
+.quoteWizardHeader .logoMark i:nth-child(1) {
+  height: 21px;
+}
+.quoteWizardHeader .logoMark i:nth-child(2) {
+  height: 35px;
+}
+.quoteWizardHeader .logoMark i:nth-child(3) {
+  height: 27px;
+}
+.quoteWizardHeader .logoText strong {
+  display: block;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: .3px;
+}
+.quoteWizardHeader .logoText small {
+  display: block;
+  margin-top: 5px;
+  color: #e30613;
+  font-size: 6px;
+  font-weight: 900;
+  letter-spacing: 1.7px;
+}
+.quoteWizardClose {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 27px;
+  font-weight: 300;
+}
+/* ============================================================
+   CONTENEUR QUESTION
+============================================================ */
+.oneQuestion {
+  width: min(680px, calc(100% - 32px));
+  min-height: 650px;
+  margin: 30px auto;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  box-shadow:
+    0 12px 40px
+    rgba(0, 0, 0, .055);
+}
+/* ============================================================
+   PROGRESSION
+============================================================ */
+.oneQuestionProgress {
+  width: 100%;
+}
+.oneQuestionProgress > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.oneQuestionProgress span {
+  color: #e30613;
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: 1.4px;
+}
+.oneQuestionProgress strong {
+  color: #e30613;
+  font-size: 10px;
+  font-weight: 850;
+}
+.oneQuestionProgress > i {
+  width: 100%;
+  height: 3px;
+  margin-top: 12px;
+  display: block;
+  overflow: hidden;
+  background: #eceeef;
+  font-style: normal;
+}
+.oneQuestionProgress > i > b {
+  height: 100%;
+  display: block;
+  background: #e30613;
+  transition: width .35s ease;
+}
+/* ============================================================
+   QUESTION
+============================================================ */
+.oneQuestionContent {
+  flex: 1;
+  padding-top: 48px;
+}
+.oneQuestionContent h1 {
+  max-width: 580px;
+  margin: 0 0 31px;
+  color: #111;
+  font-family:
+    "Segoe UI Variable Display",
+    "Aptos Display",
+    "Segoe UI",
+    sans-serif;
+  font-size: 37px;
+  line-height: 1.04;
+  letter-spacing: -1.8px;
+  font-weight: 760;
+}
+/* ============================================================
+   CHOIX
+============================================================ */
+.singleChoices {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.singleChoice {
+  width: 100%;
+  min-height: 58px;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 0;
+  border-bottom: 1px solid #e5e6e7;
+  background: transparent;
+  color: #151719;
+  text-align: left;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    color .18s ease,
+    padding .18s ease,
+    background .18s ease;
+}
+.singleChoice:first-child {
+  border-top: 1px solid #e5e6e7;
+}
+.singleChoice > span {
+  color: #e30613;
+  font-size: 15px;
+}
+.singleChoice:hover {
+  padding-left: 10px;
+  color: #e30613;
+  background: #fff9f9;
+}
+.singleChoice.selected {
+  padding-left: 10px;
+  color: #e30613;
+  background: #fff5f5;
+}
+/* ============================================================
+   INPUT
+============================================================ */
+.singleInput {
+  width: 100%;
+  height: 64px;
+  padding: 0;
+  border: 0;
+  border-bottom: 2px solid #dadcde;
+  outline: none;
+  background: transparent;
+  color: #111;
+  font-family: inherit;
+  font-size: 21px;
+  transition: border-color .2s ease;
+}
+.singleInput::placeholder {
+  color: #a5a8ab;
+}
+.singleInput:focus {
+  border-color: #e30613;
+}
+/* ============================================================
+   DESCRIPTION
+============================================================ */
+.singleTextarea {
+  width: 100%;
+  min-height: 180px;
+  padding: 15px 0;
+  resize: vertical;
+  border: 0;
+  border-bottom: 2px solid #dadcde;
+  outline: none;
+  background: transparent;
+  color: #111;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.singleTextarea:focus {
+  border-color: #e30613;
+}
+/* ============================================================
+   UPLOAD
+============================================================ */
+.singleUpload {
+  width: 100%;
+  min-height: 145px;
+  padding: 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  border: 1px dashed #bec2c6;
+  background: #fafafa;
+  cursor: pointer;
+  transition:
+    border-color .2s ease,
+    background .2s ease;
+}
+.singleUpload:hover {
+  border-color: #e30613;
+  background: #fff8f8;
+}
+.singleUpload input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.singleUpload strong {
+  color: #111;
+  font-size: 15px;
+}
+.singleUpload span {
+  color: #777c80;
+  font-size: 10px;
+}
+.selectedDocuments {
+  margin-top: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.selectedDocuments span {
+  padding: 6px 8px;
+  background: #f0f1f2;
+  color: #555;
+  font-size: 9px;
+}
+/* ============================================================
+   LIEN PASSER
+============================================================ */
+.skipQuestion {
+  margin-top: 18px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #6d7276;
+  font-family: inherit;
+  font-size: 10px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+/* ============================================================
+   NAVIGATION
+============================================================ */
+.oneQuestionNavigation {
+  width: 100%;
+  padding-top: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  border-top: 1px solid #ededed;
+}
+.oneBack {
+  padding: 10px 0;
+  border: 0;
+  background: transparent;
+  color: #5c6064;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 650;
+  cursor: pointer;
+}
+.oneNext {
+  min-width: 145px;
+  height: 45px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  border: 0;
+  background: #e30613;
+  color: #fff;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 750;
+  cursor: pointer;
+}
+.oneNext:disabled {
+  opacity: .3;
+  cursor: not-allowed;
+}
+/* ============================================================
+   RECAPITULATIF
+============================================================ */
+.devisRecapPage {
+  width: min(900px, calc(100% - 30px));
+  margin: 40px auto 80px;
+}
+.recapHeading {
+  max-width: 660px;
+  margin-bottom: 30px;
+}
+.recapHeading small {
+  color: #e30613;
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: 1.5px;
+}
+.recapHeading h1 {
+  margin: 9px 0 10px;
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+.recapHeading p {
+  margin: 0;
+  color: #686d71;
+  font-size: 12px;
+  line-height: 1.6;
+}
+/* ============================================================
+   APERCU A4
+============================================================ */
+.a4Preview {
+  width: min(100%, 794px);
+  aspect-ratio: 210 / 297;
+  margin: 0 auto;
+  padding: 42px;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  box-shadow:
+    0 15px 50px
+    rgba(0, 0, 0, .13);
+}
+/* HEADER A4 */
+.a4Header {
+  height: 76px;
+  margin:
+    -42px
+    -42px
+    34px;
+  padding: 0 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #07090b;
+  color: #fff;
+}
+.a4Header > div {
+  display: flex;
+  flex-direction: column;
+}
+.a4Header > div strong {
+  font-size: 18px;
+}
+.a4Header > div small {
+  margin-top: 4px;
+  color: #e30613;
+  font-size: 6px;
+  font-weight: 900;
+  letter-spacing: 1.7px;
+}
+.a4Header > span {
+  font-size: 9px;
+  font-weight: 750;
+}
+/* TITRE */
+.a4DocumentTitle {
+  padding-bottom: 18px;
+  border-bottom: 2px solid #e30613;
+}
+.a4DocumentTitle h2 {
+  margin: 0 0 11px;
+  font-size: 26px;
+  letter-spacing: -1px;
+}
+.a4DocumentTitle > div {
+  display: flex;
+  justify-content: space-between;
+  color: #767b7f;
+  font-size: 8px;
+}
+/* SECTIONS */
+.a4Section {
+  margin-top: 22px;
+}
+.a4Section h3 {
+  margin: 0 0 10px;
+  color: #e30613;
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: 1px;
+}
+.a4Client {
+  padding: 13px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap:
+    11px
+    24px;
+  background: #f6f7f8;
+}
+.a4Client p {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.a4Client span,
+.a4Row span {
+  color: #868b8f;
+  font-size: 7px;
+}
+.a4Client strong,
+.a4Row strong {
+  color: #111;
+  font-size: 8px;
+}
+/* TABLE */
+.a4Row {
+  min-height: 27px;
+  padding: 0 9px;
+  display: grid;
+  grid-template-columns:
+    38%
+    62%;
+  align-items: center;
+  border-top: 1px solid #e5e6e7;
+}
+.a4Row:nth-child(even) {
+  background: #fafafa;
+}
+.a4Description {
+  margin: 0;
+  color: #444;
+  font-size: 8px;
+  line-height: 1.65;
+}
+/* NOTE */
+.a4Notice {
+  margin-top: 20px;
+  padding: 11px;
+  background: #f6f7f8;
+}
+.a4Notice strong {
+  font-size: 7px;
+}
+.a4Notice p {
+  margin: 4px 0 0;
+  color: #686d70;
+  font-size: 6.5px;
+  line-height: 1.5;
+}
+/* FOOTER A4 */
+.a4Footer {
+  position: absolute;
+  left: 42px;
+  right: 42px;
+  bottom: 27px;
+  padding-top: 9px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #ddd;
+  color: #85898d;
+  font-size: 6px;
+}
+/* ACTIONS RECAP */
+.recapActions {
+  margin-top: 27px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.recapActions button {
+  min-height: 44px;
+  padding: 0 15px;
+  border: 0;
+  font-family: inherit;
+  font-size: 9px;
+  font-weight: 750;
+  cursor: pointer;
+}
+.recapEdit {
+  background: transparent;
+  color: #555;
+}
+.recapDownload {
+  background: #111;
+  color: #fff;
+}
+.recapSend {
+  padding:
+    0
+    19px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+  background: #e30613;
+  color: #fff;
+}
+/* ============================================================
+   MOBILE
+============================================================ */
+@media (max-width: 700px) {
+  .quoteWizardHeader {
+    height: 70px;
+    padding: 0 12px;
+  }
+  .oneQuestion {
+    width: 100%;
+    min-height:
+      calc(
+        100vh - 70px
+      );
+    margin: 0;
+    padding:
+      22px
+      12px
+      25px;
+    box-shadow: none;
+  }
+  .oneQuestionContent {
+    padding-top: 39px;
+  }
+  .oneQuestionContent h1 {
+    max-width: 390px;
+    margin-bottom: 25px;
+    font-size: 30px;
+    line-height: 1.05;
+    letter-spacing: -1.4px;
+  }
+  .singleChoice {
+    min-height: 52px;
+    font-size: 12px;
+  }
+  .singleInput {
+    height: 58px;
+    font-size: 18px;
+  }
+  .singleTextarea {
+    min-height: 165px;
+    font-size: 13px;
+  }
+  .oneQuestionNavigation {
+    margin-top: 25px;
+  }
+  /* A4 */
+  .devisRecapPage {
+    width: 100%;
+    margin: 0;
+    padding:
+      32px
+      9px
+      55px;
+  }
+  .recapHeading h1 {
+    font-size: 32px;
+  }
+  .a4Preview {
+    width: 100%;
+    padding: 18px;
+    box-shadow:
+      0
+      7px
+      27px
+      rgba(0,0,0,.13);
+  }
+  .a4Header {
+    height: 54px;
+    margin:
+      -18px
+      -18px
+      18px;
+    padding:
+      0
+      18px;
+  }
+  .a4Header > div strong {
+    font-size: 12px;
+  }
+  .a4Header > span {
+    font-size: 6px;
+  }
+  .a4DocumentTitle {
+    padding-bottom: 10px;
+  }
+  .a4DocumentTitle h2 {
+    margin-bottom: 6px;
+    font-size: 18px;
+  }
+  .a4DocumentTitle > div {
+    font-size: 5.5px;
+  }
+  .a4Section {
+    margin-top: 12px;
+  }
+  .a4Section h3 {
+    margin-bottom: 6px;
+    font-size: 5.5px;
+  }
+  .a4Client {
+    padding: 7px;
+    gap:
+      6px
+      10px;
+  }
+  .a4Client span,
+  .a4Row span {
+    font-size: 5px;
+  }
+  .a4Client strong,
+  .a4Row strong {
+    font-size: 5.7px;
+  }
+  .a4Row {
+    min-height: 18px;
+    padding: 0 5px;
+  }
+  .a4Description {
+    font-size: 5.6px;
+  }
+  .a4Notice {
+    margin-top: 10px;
+    padding: 7px;
+  }
+  .a4Notice strong {
+    font-size: 5.5px;
+  }
+  .a4Notice p {
+    font-size: 5px;
+  }
+  .a4Footer {
+    left: 18px;
+    right: 18px;
+    bottom: 12px;
+    font-size: 5px;
+  }
+  .recapActions {
+    flex-direction: column;
+  }
+  .recapActions button {
+    width: 100%;
+  }
+}
+/* CREDESS CHOICE GRID START */
+/* ============================================================
+   CHOIX EN GRILLE
+============================================================ */
+.singleChoices {
+  width: 100%;
+  display: grid !important;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap: 10px !important;
+}
+/* VRAIS BOUTONS */
+.singleChoice {
+  width: 100% !important;
+  min-height: 88px !important;
+  padding:
+    14px
+    13px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  border:
+    1px solid #dfe1e3 !important;
+  border-radius: 7px !important;
+  background: #ffffff !important;
+  color: #17191b !important;
+  text-align: left !important;
+  font-size: 12px !important;
+  font-weight: 650 !important;
+  cursor: pointer;
+  transition:
+    border-color .18s ease,
+    background .18s ease,
+    color .18s ease,
+    transform .18s ease,
+    box-shadow .18s ease;
+}
+/* SUPPRIMER LES ANCIENNES BORDURES DE LISTE */
+.singleChoice:first-child {
+  border:
+    1px solid #dfe1e3 !important;
+}
+/* PETITE FLECHE */
+.singleChoice > span {
+  align-self: flex-end;
+  color: #e30613 !important;
+  font-size: 15px !important;
+  line-height: 1;
+}
+/* SURVOL */
+.singleChoice:hover {
+  padding:
+    14px
+    13px !important;
+  border-color:
+    #e30613 !important;
+  background:
+    #fffafa !important;
+  color:
+    #e30613 !important;
+  transform:
+    translateY(-2px);
+  box-shadow:
+    0
+    8px
+    20px
+    rgba(0,0,0,.06);
+}
+/* SELECTION */
+.singleChoice.selected {
+  padding:
+    14px
+    13px !important;
+  border-color:
+    #e30613 !important;
+  background:
+    #fff1f2 !important;
+  color:
+    #e30613 !important;
+  box-shadow:
+    0
+    0
+    0
+    1px
+    rgba(227,6,19,.08);
+}
+/* ============================================================
+   TABLETTE
+============================================================ */
+@media (max-width: 850px) {
+  .singleChoices {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+/* ============================================================
+   MOBILE
+============================================================ */
+@media (max-width: 700px) {
+  .singleChoices {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+  .singleChoice {
+    min-height: 78px !important;
+    padding:
+      12px
+      11px !important;
+    font-size:
+      10.5px !important;
+    border-radius:
+      6px !important;
+  }
+  .singleChoice:hover,
+  .singleChoice.selected {
+    padding:
+      12px
+      11px !important;
+  }
+  .singleChoice > span {
+    font-size:
+      13px !important;
+  }
+}
+/* PETITS TELEPHONES */
+@media (max-width: 360px) {
+  .singleChoice {
+    min-height:
+      74px !important;
+    font-size:
+      9.5px !important;
+  }
+}
+/* CREDESS CHOICE GRID END */
+/* ============================================================
+   NOUVEAU DEVIS
+============================================================ */
+.newDevisWrapper {
+  width: 100%;
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+}
+.newDevisButton {
+  min-height: 44px;
+  padding:
+    0
+    18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border:
+    1px solid #e30613;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #e30613;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    background .2s ease,
+    color .2s ease,
+    transform .2s ease;
+}
+.newDevisButton span {
+  font-size: 17px;
+  font-weight: 400;
+}
+.newDevisButton:hover {
+  background: #e30613;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+@media (max-width: 700px) {
+  .newDevisWrapper {
+    margin-top: 22px;
+  }
+  .newDevisButton {
+    width: 100%;
+    min-height: 45px;
+  }
+}
+.devisSendError {
+  width: min(794px, 100%);
+  margin: 18px auto 0;
+  padding: 12px 14px;
+  background: #fff0f1;
+  color: #b5000b;
+  font-size: 12px;
+}
+.recapSend:disabled {
+  opacity: .55;
+  cursor: default;
+}

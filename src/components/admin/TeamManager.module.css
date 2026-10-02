@@ -1,0 +1,374 @@
+.page {
+  width: 100%;
+}
+.heading {
+  margin-bottom: 28px;
+}
+.heading > small,
+.editorTitle small,
+.listHeading small {
+  color: #e30613;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+.heading h1 {
+  margin: 7px 0 6px;
+  font-size:
+    clamp(
+      36px,
+      4vw,
+      52px
+    );
+  line-height: .95;
+  letter-spacing: -2px;
+}
+.heading p {
+  margin: 0;
+  color: #73787c;
+  font-size: 14px;
+}
+/* ==========================================================
+   EDITEUR
+========================================================== */
+.editor {
+  padding: 30px;
+  border: 1px solid #dfe1e3;
+  background: #fff;
+}
+.editorTitle {
+  margin-bottom: 28px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+.editorTitle h2 {
+  margin: 6px 0 0;
+  font-size: 27px;
+}
+.editorTitle > button {
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid #d6d9dc;
+  background: #fff;
+  cursor: pointer;
+}
+.form {
+  display: grid;
+  grid-template-columns:
+    240px
+    1fr;
+  gap: 35px;
+}
+/* PHOTO */
+.photoColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.photoPreview {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: #f1f2f3;
+  border: 1px solid #dfe1e3;
+}
+.photoPreview img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+.initials {
+  width: 90px;
+  height: 90px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #e30613;
+  color: #fff;
+  font-size: 33px;
+  font-weight: 900;
+}
+.photoButton {
+  min-height: 48px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.photoButton input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.removePhoto,
+.restorePhoto {
+  min-height: 40px;
+  border: 1px solid #d8dade;
+  background: #fff;
+  font-size: 11px;
+  cursor: pointer;
+}
+.removePhoto {
+  color: #e30613;
+}
+.restorePhoto {
+  color: #18743a;
+}
+/* CHAMPS */
+.fields {
+  display: grid;
+  grid-template-columns:
+    repeat(2, 1fr);
+  gap: 18px;
+}
+.fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.fields label span {
+  font-size: 13px;
+  font-weight: 750;
+}
+.fields input {
+  min-height: 52px;
+  padding: 0 14px;
+  border: 1px solid #d4d7da;
+  outline: none;
+  background: #fff;
+  font: inherit;
+  font-size: 14px;
+}
+.fields input:focus {
+  border-color: #e30613;
+}
+.help,
+.error,
+.success,
+.save {
+  grid-column: 1 / -1;
+}
+.help {
+  padding: 13px;
+  background: #f7f8f8;
+  color: #74797d;
+  font-size: 12px;
+  line-height: 1.55;
+}
+.error,
+.success {
+  padding: 13px 15px;
+  font-size: 13px;
+}
+.error {
+  background: #fff0f1;
+  color: #b5000b;
+}
+.success {
+  background: #edf9f0;
+  color: #18743a;
+}
+.save {
+  width: max-content;
+  min-width: 250px;
+  min-height: 52px;
+  padding: 0 18px;
+  border: 0;
+  background: #e30613;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 850;
+  cursor: pointer;
+}
+.save:disabled {
+  opacity: .55;
+  cursor: default;
+}
+/* ==========================================================
+   LISTE
+========================================================== */
+.membersSection {
+  margin-top: 25px;
+  padding: 30px;
+  border: 1px solid #dfe1e3;
+  background: #fff;
+}
+.listHeading {
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.listHeading h2 {
+  margin: 5px 0 0;
+  font-size: 26px;
+}
+.listHeading > strong {
+  color: #e30613;
+  font-size: 32px;
+}
+.memberGrid {
+  display: grid;
+  grid-template-columns:
+    repeat(
+      auto-fill,
+      minmax(
+        280px,
+        1fr
+      )
+    );
+  gap: 14px;
+}
+.memberCard {
+  overflow: hidden;
+  border: 1px solid #dfe1e3;
+  background: #fff;
+}
+.memberPhoto {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #f0f1f2;
+}
+.memberPhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.memberPhoto > span {
+  width: 75px;
+  height: 75px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #e30613;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 900;
+}
+.memberInfo {
+  padding: 17px;
+}
+.statusRow {
+  margin-bottom: 9px;
+}
+.online,
+.offline {
+  padding: 4px 7px;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+.online {
+  background: #e9f8ed;
+  color: #17723a;
+}
+.offline {
+  background: #eee;
+  color: #696e72;
+}
+.memberInfo h3 {
+  margin: 0;
+  font-size: 19px;
+}
+.memberInfo > strong {
+  margin-top: 4px;
+  display: block;
+  color: #e30613;
+  font-size: 11px;
+}
+.contactInfo {
+  margin-top: 12px;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid #eceeef;
+  color: #74797d;
+  font-size: 11px;
+}
+.memberActions {
+  display: grid;
+  grid-template-columns:
+    repeat(3, 1fr);
+  border-top: 1px solid #e2e4e5;
+}
+.memberActions button {
+  min-height: 43px;
+  border: 0;
+  border-right: 1px solid #e2e4e5;
+  background: #fff;
+  font-size: 10px;
+  font-weight: 750;
+  cursor: pointer;
+}
+.memberActions button:hover {
+  background: #f5f6f6;
+}
+.memberActions .delete {
+  color: #e30613;
+}
+.empty {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: #808589;
+  text-align: center;
+}
+.empty strong {
+  color: #111;
+  font-size: 16px;
+}
+.empty span {
+  font-size: 12px;
+}
+/* ==========================================================
+   MOBILE
+========================================================== */
+@media (max-width: 800px) {
+  .editor,
+  .membersSection {
+    padding: 17px;
+  }
+  .form {
+    grid-template-columns: 1fr;
+  }
+  .photoColumn {
+    max-width: 320px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .fields {
+    grid-template-columns: 1fr;
+  }
+  .help,
+  .error,
+  .success,
+  .save {
+    grid-column: auto;
+  }
+  .save {
+    width: 100%;
+  }
+  .memberGrid {
+    grid-template-columns: 1fr;
+  }
+}
